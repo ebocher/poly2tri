@@ -30,6 +30,7 @@
  */
 package org.poly2tri.triangulation.delaunay.sweep;
 
+import org.poly2tri.triangulation.TriangulationContext;
 import org.poly2tri.triangulation.TriangulationMode;
 import org.poly2tri.triangulation.TriangulationPoint;
 import org.poly2tri.triangulation.TriangulationUtil.*;
@@ -78,7 +79,7 @@ public class DTSweep {
     /**
      * Start sweeping the Y-sorted point set from bottom to top
      *
-     * @param tcx
+     * @param tcx {@link TriangulationContext}
      */
     private static void sweep(DTSweepContext tcx) {
         TriangulationPoint point;
@@ -104,7 +105,7 @@ public class DTSweep {
      * If this is a Delaunay Triangulation of a pointset we need to
      * fill so the triangle mesh gets a ConvexHull
      *
-     * @param tcx
+     * @param tcx {@link TriangulationContext}
      */
     private static void finalizationConvexHull(DTSweepContext tcx) {
         AdvancingFrontNode n1, n2;
@@ -214,7 +215,7 @@ public class DTSweep {
 
     /**
      * Create the triangles as polygons
-     * @param tcx
+     * @param tcx {@link TriangulationContext}
      */
     private static void finalizationPolygon(DTSweepContext tcx) {
         // Get an Internal triangle to start with
@@ -233,8 +234,8 @@ public class DTSweep {
      * create a new triangle. If needed new holes and basins
      * will be filled to.
      *
-     * @param tcx
-     * @param point
+     * @param tcx {@link TriangulationContext}
+     * @param point a point
      * @return
      */
     private static AdvancingFrontNode pointEvent(DTSweepContext tcx,
@@ -261,9 +262,9 @@ public class DTSweep {
     /**
      * Creates a new front triangle and legalize it
      *
-     * @param tcx
-     * @param point
-     * @param node
+     * @param tcx {@link TriangulationContext}
+     * @param point a point
+     * @param node a node in the triangulation
      * @return
      */
     private static AdvancingFrontNode newFrontTriangle(DTSweepContext tcx,
@@ -296,9 +297,9 @@ public class DTSweep {
     }
 
     /**
-     * @param tcx
-     * @param edge
-     * @param node
+     * @param tcx {@link TriangulationContext}
+     * @param edge a segment
+     * @param node a node in the triangulation
      */
     private static void edgeEvent(DTSweepContext tcx,
                                   DTSweepConstraint edge,
@@ -651,7 +652,7 @@ public class DTSweep {
      * After a flip we have two triangles and know that only one will still be
      * intersecting the edge. So decide which to contiune with and legalize the other
      *
-     * @param tcx
+     * @param tcx {@link TriangulationContext}
      * @param o   - should be the result of an orient2d( eq, op, ep )
      * @param t   - triangle 1
      * @param ot  - triangle 2
@@ -688,12 +689,12 @@ public class DTSweep {
      * point that is inside the flip triangle scan area. When found
      * we generate a new flipEdgeEvent
      *
-     * @param tcx
+     * @param tcx {@link TriangulationContext}
      * @param ep           - last point on the edge we are traversing
      * @param eq           - first point on the edge we are traversing
      * @param flipTriangle - the current triangle sharing the point eq with edge
-     * @param t
-     * @param p
+     * @param t a triangle
+     * @param p a point
      */
     private static void flipScanEdgeEvent(DTSweepContext tcx,
                                           TriangulationPoint ep,
@@ -743,8 +744,8 @@ public class DTSweep {
     /**
      * Fills holes in the Advancing Front
      *
-     * @param tcx
-     * @param n
+     * @param tcx {@link TriangulationContext}
+     * @param n a node in the triangulation
      */
     private static void fillAdvancingFront(DTSweepContext tcx, AdvancingFrontNode n) {
         AdvancingFrontNode node;
@@ -857,7 +858,7 @@ public class DTSweep {
      * First we decide a left,bottom and right node that forms the
      * boundaries of the basin. Then we do a reqursive fill.
      *
-     * @param tcx
+     * @param tcx {@link TriangulationContext}
      * @param node - starting node, this or next node will be left node
      */
     private static void fillBasin(DTSweepContext tcx, AdvancingFrontNode node) {
@@ -897,9 +898,8 @@ public class DTSweep {
     /**
      * Recursive algorithm to fill a Basin with triangles
      *
-     * @param tcx
+     * @param tcx {@link TriangulationContext}
      * @param node - bottomNode
-     * @param cnt  - counter used to alternate on even and odd numbers
      */
     private static void fillBasinReq(DTSweepContext tcx, AdvancingFrontNode node) {
         // if shallow stop filling
@@ -982,7 +982,7 @@ public class DTSweep {
     /**
      * Adds a triangle to the advancing front to fill a hole.
      *
-     * @param tcx
+     * @param tcx {@link TriangulationContext}
      * @param node - middle node, that is the bottom of the hole
      */
     private static void fill(DTSweepContext tcx, AdvancingFrontNode node) {

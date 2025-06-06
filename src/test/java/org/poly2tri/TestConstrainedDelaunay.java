@@ -156,7 +156,6 @@ public class TestConstrainedDelaunay {
      * Effectively crash with {@link java.math.MathContext#DECIMAL128}. However Poly2Tri is working with double,
      * then it is ok with double rounding.
      *
-     * @throws IOException
      */
     @Test
     public void testPolygonTessellation() throws IOException {
@@ -168,7 +167,6 @@ public class TestConstrainedDelaunay {
     /**
      * Check "Banana" polygon. Polygon with a hole where hole point touch outer ring point.
      *
-     * @throws IOException
      */
     @Test
     public void testPolygonHoleTouchTessellation() throws IOException {
