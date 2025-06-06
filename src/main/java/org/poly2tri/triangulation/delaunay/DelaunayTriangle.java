@@ -179,7 +179,6 @@ public class DelaunayTriangle {
     /**
      * @param t - opposite triangle
      * @param p - the point in t that isn't shared between the triangles
-     * @return
      */
     public TriangulationPoint oppositePoint(DelaunayTriangle t, TriangulationPoint p) {
         assert t != this : "self-pointer error";

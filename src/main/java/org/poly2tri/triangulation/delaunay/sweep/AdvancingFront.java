@@ -77,7 +77,6 @@ public class AdvancingFront {
      * We use a balancing tree to locate a node smaller or equal to
      * given key value
      *
-     * @return
      */
     public AdvancingFrontNode locateNode(TriangulationPoint point) {
         return locateNode(point.getX());
@@ -107,8 +106,7 @@ public class AdvancingFront {
      * This implementation will use simple node traversal algorithm to find
      * a point on the front
      *
-     * @param point
-     * @return
+     * @param point {@link TriangulationPoint}
      */
     public AdvancingFrontNode locatePoint(final TriangulationPoint point) {
         final double px = point.getX();

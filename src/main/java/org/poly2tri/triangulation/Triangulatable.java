@@ -8,7 +8,7 @@ public interface Triangulatable {
     /**
      * Preparations needed before triangulation start should be handled here
      *
-     * @param tcx
+     * @param tcx {@link TriangulationContext}
      */
     public void prepareTriangulation(TriangulationContext<?> tcx);
 
