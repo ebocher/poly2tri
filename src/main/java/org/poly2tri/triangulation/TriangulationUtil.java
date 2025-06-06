@@ -134,11 +134,10 @@ public class TriangulationUtil {
     }
 
     /**
-     * @param pa
-     * @param pb
-     * @param pc
-     * @param pd
-     * @return
+     * @param pa {@link TriangulationPoint}
+     * @param pb {@link TriangulationPoint}
+     * @param pc {@link TriangulationPoint}
+     * @param pd {@link TriangulationPoint}
      * @see #smartIncircle(TriangulationPoint, TriangulationPoint, TriangulationPoint, TriangulationPoint)
      */
     public static boolean inScanArea(final TriangulationPoint pa,

@@ -106,7 +106,6 @@ public class ConstrainedPointSet extends PointSet {
      * 1. Check's if there any constraint edges are crossing or collinear<br>
      * 2.
      *
-     * @return
      */
     public boolean isValid() {
         return true;

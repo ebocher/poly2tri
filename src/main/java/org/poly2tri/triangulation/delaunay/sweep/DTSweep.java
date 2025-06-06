@@ -236,7 +236,6 @@ public class DTSweep {
      *
      * @param tcx {@link TriangulationContext}
      * @param point a point
-     * @return
      */
     private static AdvancingFrontNode pointEvent(DTSweepContext tcx,
                                                  TriangulationPoint point) {
@@ -265,7 +264,6 @@ public class DTSweep {
      * @param tcx {@link TriangulationContext}
      * @param point a point
      * @param node a node in the triangulation
-     * @return
      */
     private static AdvancingFrontNode newFrontTriangle(DTSweepContext tcx,
                                                        TriangulationPoint point,
@@ -625,11 +623,10 @@ public class DTSweep {
      * the point in current triangle that is the opposite point to the next
      * triangle.
      *
-     * @param ep
-     * @param eq
-     * @param ot
-     * @param op
-     * @return
+     * @param ep {@link TriangulationPoint}
+     * @param eq {@link TriangulationPoint}
+     * @param ot {@link DelaunayTriangle}
+     * @param op {@link TriangulationPoint}
      */
     private static TriangulationPoint nextFlipPoint(TriangulationPoint ep,
                                                     TriangulationPoint eq,
