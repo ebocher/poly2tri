@@ -1,3 +1,5 @@
+# poly2tri is no longer maintained
+
 # poly2tri
 
 poly2tri is a 2D constrained Delaunay triangulation library that implements
